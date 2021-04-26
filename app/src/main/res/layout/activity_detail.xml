@@ -4,31 +4,98 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="5dp"
     tools:context=".DetailActivity">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/circleImageView"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_margin="50dp"
-        android:layout_marginEnd="61dp"
-        android:layout_marginRight="61dp"
-        android:layout_marginBottom="20dp"
-        android:src="@drawable/user1"
-        app:layout_constraintBottom_toTopOf="@+id/detailname"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:id="@+id/ln1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleImageView"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/user1"
+            android:foregroundGravity="left"
+            app:layout_constraintBottom_toTopOf="@+id/detailname"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginStart="17dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/repository_"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/number"
+                android:textSize="20sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/repository"
+                android:textSize="15sp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/followers_"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/number"
+                android:textSize="20sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/followers"
+                android:textSize="15sp"/>
+        </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/following_"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/number"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/following"
+                android:textSize="15sp"/>
+        </LinearLayout>
+
+    </LinearLayout>
     <TextView
         android:id="@+id/detailname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:textSize="30sp"
         android:text="@string/fullname"
-        app:layout_constraintTop_toBottomOf="@id/circleImageView"
+        app:layout_constraintTop_toBottomOf="@id/ln1"
         android:gravity="center_horizontal" />
     <TextView
         android:id="@+id/username_detail"
@@ -39,67 +106,49 @@
         android:text="@string/username"
         app:layout_constraintTop_toBottomOf="@id/detailname"
         android:gravity="center_horizontal" />
-
-    <ScrollView
-        android:id="@+id/scrlview"
+    <TextView
+        android:id="@+id/company_detail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/username_detail">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/username_detail">
-
-            <TextView
-                android:id="@+id/company"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:ellipsize="end"
-                android:gravity="center_horizontal"
-                android:maxLines="1"
-                app:layout_constraintTop_toBottomOf="@id/username_detail"
-                tools:ignore="MissingConstraints"
-                tools:text="@string/company" />
-            <TextView
-                android:id="@+id/location"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:ellipsize="end"
-                android:gravity="center_horizontal"
-                android:maxLines="1"
-                app:layout_constraintTop_toBottomOf="@id/username_detail"
-                tools:ignore="MissingConstraints"
-                tools:text="location" />
-        </LinearLayout>
-    </ScrollView>
-    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:textSize="18sp"
+        android:text="@string/company"
+        app:layout_constraintTop_toBottomOf="@id/username_detail"
+        android:gravity="center_horizontal" />
+    <TextView
+        android:id="@+id/location_detail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/scrlview">
-        <TextView
-            android:id="@+id/repository_"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            android:gravity="center_horizontal"
-            android:text="@string/number"
-            app:layout_constraintTop_toBottomOf="@id/username_detail" />
+        android:layout_marginTop="10dp"
+        android:textSize="18sp"
+        android:text="@string/location"
+        app:layout_constraintTop_toBottomOf="@id/company_detail"
+        android:gravity="center_horizontal" />
+    <TextView
+        android:id="@+id/blog_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="18sp"
+        android:text="@string/blog"
+        app:layout_constraintTop_toBottomOf="@id/location_detail"
+        android:gravity="center_horizontal" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="10dp"
-            android:gravity="center_horizontal"
-            android:text="@string/repository"
-            app:layout_constraintTop_toBottomOf="@id/username_detail" />
-    </LinearLayout>
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs_follow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="16dp"
+        android:minHeight="?actionBarSize"
+        app:layout_constraintTop_toBottomOf="@+id/blog_detail"
+        app:tabIndicatorFullWidth="false"
+        app:tabIndicatorHeight="5dp"
+        app:tabMode="fixed"
+        app:tabRippleColor="@color/white" />
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tabs_follow"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
